@@ -7,6 +7,7 @@ add_subdirectory(WBC)
 add_subdirectory(PlannerSet)
 add_subdirectory(RobotSystem)
 add_subdirectory(Filters)
+add_subdirectory(LaikagoPnC)
 
 file(GLOB pnc_headers "*.hpp")
 install(FILES ${pnc_headers} DESTINATION "${INSTALL_INCLUDE_DIR}/PnC")
