@@ -13,10 +13,10 @@ class A1SensorData{
     public:
       A1SensorData(){
 
-        q = Eigen::VectorXd::Zero(A1::n_dof);
-        qdot = Eigen::VectorXd::Zero(A1::n_dof);
-        q_act = Eigen::VectorXd::Zero(A1::n_adof);
-        qdot_act = Eigen::VectorXd::Zero(A1::n_adof);
+        q = Eigen::VectorXd::Zero(A1::n_adof);
+        qdot = Eigen::VectorXd::Zero(A1::n_adof);
+        // q_act = Eigen::VectorXd::Zero(A1::n_adof);
+        // qdot_act = Eigen::VectorXd::Zero(A1::n_adof);
         virtual_q = Eigen::VectorXd::Zero(A1::n_vdof);
         virtual_qdot = Eigen::VectorXd::Zero(A1::n_vdof);
 

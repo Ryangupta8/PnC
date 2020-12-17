@@ -53,8 +53,8 @@ void A1Interface::getCommand(void* _data, void* _command){
     if(!Initialization_(data,cmd)){
         // state_estimator_->Update(data);
         sp_->saveCurrentData();
-        data->q_act = sp_->act_q_;
-        data->qdot_act = sp_->act_qdot_;
+        // data->q_act = sp_->act_q_;
+        // data->qdot_act = sp_->act_qdot_;
         robot_->updateSystem(data->q, data->qdot, true);
         // test_->getCommand(cmd);
         //CropTorque_(cmd);

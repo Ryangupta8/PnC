@@ -10,20 +10,35 @@ A1StateProvider* A1StateProvider::getStateProvider(RobotSystem* _robot){
 A1StateProvider::A1StateProvider(RobotSystem* _robot){
     myUtils::pretty_constructor(1,"A1 State Provider");
 
+    // API related parameters
+    b_walking = false;
+    b_ready_to_walk = false;
+    ft_length = 0.;
+    fr_ft_width = 0.;
+    fl_ft_width = 0.;
+    rl_ft_width = 0.;
+    rr_ft_width = 0.;
+    ft_ori_inc = 0.;
+    num_total_step = 0;
+    num_residual_step = 0;
+
     num_total_step = 0;
     num_step_copy = 0;
     phase_copy = 0;
     robot_ = _robot;
     curr_time = 0.;
 
-    q_ = Eigen::VectorXd::Zero(A1::n_adof);
-    qdot_ = Eigen::VectorXd::Zero(A1::n_adof);
+    q_ = Eigen::VectorXd::Zero(A1::n_dof);
+    qdot_ = Eigen::VectorXd::Zero(A1::n_dof);
     jpos_ini_ = Eigen::VectorXd::Zero(A1::n_adof);
 
     b_flfoot_contact = 0;
     b_frfoot_contact = 0;
     b_rlfoot_contact = 0;
     b_rrfoot_contact = 0;
+
+    foot_target_list.clear();
+    com_des_list.clear();
 
     com_pos = Eigen::VectorXd::Zero(3);
     com_vel = Eigen::VectorXd::Zero(3);
